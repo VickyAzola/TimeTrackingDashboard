@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Frontend Mentor | Time tracking dashboard</title>
+</head>
+<body class="bg-[#0f1424] min-h-screen grid place-content-center" onload="weekly()" style="font-family: 'Rubik', sans-serif">
+
+  <main class="mx-5 my-10 space-y-6 md:space-y-0 md:grid md:grid-cols-4 md:grid-rows-2 gap-5 lg:px-28">
+
+    <section class="bg-[#1c1f4a] rounded-xl md:col-span-1 md:row-span-2">
+      <div class="bg-[#5847eb] rounded-xl p-6 flex md:flex-col md:gap-y-5 gap-x-5 text-white md:h-[70%]">
+        <img class="w-16 md:w-20 rounded-full border-2 border-white" src="images/image-jeremy.png" alt="Profile picture" />
+        <div class="">
+          <p class="text-[#bdc1ff] md:text-lg">Report for</p>
+          <h1 class="text-2xl md:text-4xl font-light">Jeremy Robson</h1>
+        </div>
+      </div>
+      <div class="py-5 md:p-5 text-gray-500 grid grid-cols-3 md:grid-rows-3 md:justify-items-start md:gap-y-2 md:text-lg">
+        <button onclick="return daily() " class="md:row-start-1 hover:text-white focus:text-white">Daily</button>
+        <button onclick="return weekly()" class="md:row-start-2 hover:text-white focus:text-white">Weekly</button>
+        <button onclick="return monthly()" class="md:row-start-3 hover:text-white focus:text-white">Monthly</button>
+      </div>
+    </section>
+    
+      <section id="Work" class="card bg-[#ff8c66] rounded-xl text-white ">
+        <div class="bg-[url('images/icon-work.svg')] bg-no-repeat bg-[95%_35%] h-10" style="background-size:70px;"></div>
+        <div class="bg-[#1c1f4a] hover:bg-[#2e315e] hover:cursor-pointer rounded-xl p-6 space-y-3 md:space-y-5">
+          <div class="flex justify-between items-center">
+            <h2>Work</h2>
+            <button aria-label="click for more information"><img src="images/icon-ellipsis.svg" alt="Ellipsis icon" /></button>
+          </div>
+          <div class="flex justify-between items-center md:flex-col md:items-start md:gap-y-2 md:pt-2">
+            <h3 id="Workhours" class="text-3xl md:text-4xl lg:text-5xl font-light"></h3>
+            <p id="Workprevious" class="text-gray-400 md:text-lg"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="Play" class="card bg-[#56c2e6] rounded-xl text-white ">
+        <div class="bg-[url('images/icon-play.svg')] bg-no-repeat bg-[95%_10%] h-10" style="background-size:65px;"></div>
+        <div class="bg-[#1c1f4a] hover:bg-[#2e315e] hover:cursor-pointer rounded-xl p-6 space-y-3 md:space-y-5">
+          <div class="flex justify-between items-center">
+            <h2>Play</h2>
+            <button aria-label="click for more information"><img src="images/icon-ellipsis.svg" alt="Ellipsis icon" /></button>
+          </div>
+          <div class="flex justify-between items-center md:flex-col md:items-start md:gap-y-2 md:pt-2">
+            <h3 id="Playhours" class="text-3xl md:text-4xl lg:text-5xl font-light"></h3>
+            <p id="Playprevious" class="text-gray-400 md:text-lg"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="Study"  class="card bg-[#ff5c7c] rounded-xl text-white ">
+        <div class="bg-[url('images/icon-study.svg')] bg-no-repeat bg-[95%_15%] h-10" style="background-size:65px;"></div>
+        <div class="bg-[#1c1f4a] hover:bg-[#2e315e] hover:cursor-pointer rounded-xl p-6 space-y-3 md:space-y-5">
+          <div class="flex justify-between items-center">
+            <h2>Study</h2>
+            <button aria-label="click for more information"><img src="images/icon-ellipsis.svg" alt="Ellipsis icon" /></button>
+          </div>
+          <div class="flex justify-between items-center md:flex-col md:items-start md:gap-y-2 md:pt-2">
+            <h3 id="Studyhours" class="text-3xl md:text-4xl lg:text-5xl font-light"></h3>
+            <p id="Studyprevious" class="text-gray-400 md:text-lg"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="Exercise" class="card bg-[#4acf81] rounded-xl text-white ">
+        <div class="bg-[url('images/icon-exercise.svg')] bg-no-repeat bg-[95%_15%] h-10" style="background-size:65px;"></div>
+        <div class="bg-[#1c1f4a] hover:bg-[#2e315e] hover:cursor-pointer rounded-xl p-6 space-y-3 md:space-y-5">
+          <div class="flex justify-between items-center">
+            <h2>Exercise</h2>
+            <button aria-label="click for more information"><img src="images/icon-ellipsis.svg" alt="Ellipsis icon" /></button>
+          </div>
+          <div class="flex justify-between items-center md:flex-col md:items-start md:gap-y-2 md:pt-2">
+            <h3 id="Exercisehours" class="text-3xl md:text-4xl lg:text-5xl font-light"></h3>
+            <p id="Exerciseprevious" class="text-gray-400 md:text-lg"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="Social" class="card bg-[#7536d3] rounded-xl text-white">
+        <div class="bg-[url('images/icon-social.svg')] bg-no-repeat bg-[95%_15%] h-10" style="background-size:65px;"></div>
+        <div class="bg-[#1c1f4a] hover:bg-[#2e315e] hover:cursor-pointer rounded-xl p-6 space-y-3 md:space-y-5">
+          <div class="flex justify-between items-center">
+            <h2>Social</h2>
+            <button aria-label="click for more information"><img src="images/icon-ellipsis.svg" alt="Ellipsis icon" /></button>
+          </div>
+          <div class="flex justify-between items-center md:flex-col md:items-start md:gap-y-2 md:pt-2">
+            <h3 id="Socialhours" class="text-3xl md:text-4xl lg:text-5xl font-light"></h3>
+            <p id="Socialprevious" class="text-gray-400 md:text-lg"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="SelfCare" class="card bg-[#f1c65b] rounded-xl text-white">
+        <div class="bg-[url('images/icon-self-care.svg')] bg-no-repeat bg-[95%_30%] h-10" style="background-size:65px;"></div>
+        <div class="bg-[#1c1f4a] hover:bg-[#2e315e] hover:cursor-pointer rounded-xl p-6 space-y-3 md:space-y-5">
+          <div class="flex justify-between items-center">
+            <h2>Self Care</h2>
+            <button aria-label="click for more information"><img src="images/icon-ellipsis.svg" alt="Ellipsis icon" /></button>
+          </div>
+          <div class="flex justify-between items-center md:flex-col md:items-start md:gap-y-2 md:pt-2">
+            <h3 id="SelfCarehours" class="text-3xl md:text-4xl lg:text-5xl font-light"></h3>
+            <p id="SelfCareprevious" class="text-gray-400 md:text-lg"></p>
+          </div>
+        </div>
+      </section>
+
+  </main>
+
+  
+  <footer class="text-xs text-center text-slate-500 pb-4">
+    <p>Challenge by <a class="hover:text-white font-bold" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a class="hover:text-white font-bold" href="#" target="_blank">Victoria Azola</a>.</p>
+  </footer>
+</body>
+<script src="index.js"></script>
+</html>
